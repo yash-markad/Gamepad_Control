@@ -6,9 +6,7 @@ import time
 pad = inputs.devices.gamepads
 
 
-if len(pad)==0:
-    print("NO gamepad or Controller found")
-else:
+if len(pad):
     while True:
         events = inputs.get_gamepad()
         for event in events:
@@ -49,7 +47,8 @@ else:
                 print("X_1",event.state)#Dpad X
             if event.ev_type == 'Absolute' and event.code == 'ABS_HAT0Y':
                 print("Y_1",event.state)#Dpad Y
-            
+else:
+    print("NO gamepad or Controller found")
 
             
         
